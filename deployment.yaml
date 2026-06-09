@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: game-2048
+  name: nginx-demo
   namespace: default
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: game-2048
+      app: nginx-demo
   template:
     metadata:
       labels:
-        app: game-2048
+        app: nginx-demo
     spec:
       containers:
-      - name: game-2048
-        image: alexwhen/docker-2048
+      - name: nginx-demo
+        image: nginxinc/nginx-unprivileged:alpine
         ports:
-        - containerPort: 80
+        - containerPort: 8080
